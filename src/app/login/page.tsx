@@ -41,40 +41,32 @@ export default function LoginPage() {
     }, [user]);
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg  ">
-        <h1 className="text-2xl font-bold text-center text-gray-900" >{loading ? "Processing" : "Login"}</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <h1>{loading ? "Processing" : "Login"}</h1>
         <hr />
         
-        <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700" >email</label>
+        <label htmlFor="email">email</label>
         <input 
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black w-full"
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
             id="email"
             type="text"
             value={user.email}
             onChange={(e) => setUser({...user, email: e.target.value})}
             placeholder="email"
             />
-            </div>
-
-            <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700" >password</label>
+        <label htmlFor="password">password</label>
         <input 
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black w-full"
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
             id="password"
             type="password"
             value={user.password}
             onChange={(e) => setUser({...user, password: e.target.value})}
             placeholder="password"
             />
-            </div>
-
             <button
             onClick={onLogin}
-            className=" w-full p-2 text-white bg-blue-600 rounded-md hover:bg-blue-700">Login here</button>
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Login here</button>
             <Link href="/signup">Visit Signup page</Link>
-        </div>
         </div>
     )
 
